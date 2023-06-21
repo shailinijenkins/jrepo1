@@ -11,12 +11,12 @@ pipeline {
             }
 
     stages {
-        stage(build') {
+        stage('build') {
             steps {
                 sh 'docker build -t jenkinsshailini/testrepo:test1'
             }
         }
-        stage(Push'){
+        stage('Push'){
             steps{
                 sh 'echo $DOCKERHUB_CREDENTIAL_PSW | docker login -u $DOCKERHUB_CREDENTIAL_USR --password-stdin'
                 sh 'docker push jenkinsshailini/testrepo:test1'
