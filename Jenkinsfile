@@ -12,14 +12,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-               sh 'docker build -t paparaoc/testrepo2:testimg1 .'
+               sh 'docker build -t jenkinsshailini/testrepo:testimg1 .'
             }
             }
         
         stage('Push') {
             steps {
                sh 'echo $DOCKERHUB_CREDENTIAL_PSW | docker login -u $DOCKERHUB_CREDENTIAL_USR --password-stdin'
-               sh 'docker push paparaoc/testrepo2:testimg1'
+               sh 'docker push jenkinsshailini/testrepo:testimg1'
             }
         }
     
